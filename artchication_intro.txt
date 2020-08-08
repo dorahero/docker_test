@@ -1,0 +1,24 @@
+# run mysql
+docker run --name mysql57 -e MYSQL_ROOT_PASSWORD=cxcxc -p 33006:3306 -d mysql:5.7
+
+# run mongodb
+docker run --name mongo4 -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=mongoadmin -e MONGO_INITDB_ROOT_PASSWORD=secret -d mongo:4.2
+
+# stop mysql
+docker stop mysql57
+
+# stop mongo
+docker stop mongo4
+
+# remove container
+docker rm mysql57
+docker rm mongo4
+
+# run mario
+docker run --name cxcxc-mario -d -p 8600:8080 pengbai/docker-supermario
+
+# container name in docker-compose.yml
+container_name: cxcxc-mario
+
+# docker-compose.yml container name default
+# be directory_name + container name
